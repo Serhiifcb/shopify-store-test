@@ -152,10 +152,10 @@
 
 .features {
   position: relative;
-  height: 326px;
+  // height: 326px;
   background-color: $primaryDarkBackgroundColor;
   z-index: 2;
-  padding: 43px 90px 44px 90px;
+  padding: 50px 90px 50px 90px;
 }
 
 .features-list {
@@ -214,3 +214,139 @@
 .mission__block {
   margin-right: 138px;
 }
+
+.mission__title {
+  margin-bottom: 24px;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.22;
+}
+
+.mission__text {
+font-family: Inter, sans-serif;
+font-weight: 400;
+  font-size: 16px;
+  line-height: 1.69;
+  color: #4A4A4A;
+}
+
+.key-messages__block {
+  margin-left: 132px;
+}
+
+.key-messages__title {
+  margin-bottom: 24px;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.22;
+}
+
+.key-messages__text{
+font-family: Inter, sans-serif;
+font-weight: 400;
+  font-size: 16px;
+  line-height: 1.69;
+  margin-bottom: 32px;
+}
+
+.key-messages__list {
+
+}
+
+.key-item {
+display: flex;
+}
+
+.key-item:not(:last-child) {
+  margin-bottom: 22px;
+}
+
+.key-item__text {
+font-weight: 500;
+  font-size: 16px;
+  line-height: 169%;
+  margin-left: 12px;
+}
+
+.articles {
+  display: flex;
+  position: relative;
+  height: 617px;
+  background-color: rgba(31, 76, 132, 0.03);;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  
+}
+
+.background {
+  position: absolute;
+  z-index: 1;
+}
+
+.mail-form {
+  position: relative;
+  background-color: rgba(31, 76, 132, 0.03);
+  height: 362px;
+  overflow: hidden;
+}
+
+.articles-list {
+  position: relative;
+  display: flex;
+  margin-top: 194px;
+  margin-bottom: 134px;
+  z-index: 2;
+}
+
+.articles-item {
+  flex-basis: calc(100%/3);
+}
+
+.articles-item {
+  margin-right: 42px;
+}
+
+.articles-summary {
+  position: relative;
+  max-width: 360px;
+  margin-top: 220px;
+  margin-left: 80px;
+  margin-right: 76px;
+  z-index: 2;
+}
+
+.articles-summary__title {
+  margin-bottom: 12px;
+  font-weight: 500;
+    font-size: 36px;
+    line-height: 1.33;
+}
+
+.articles-summary__text {
+  margin-bottom: 24px;
+  font-family: Inter;
+  font-weight: 400;
+    font-size: 14px;
+    line-height: 1.62;
+    color:#4A4A4A;
+}
+
+.more-articles {
+  display: inline-block;
+  font-weight: 500;
+    font-size: 16px;
+    line-height: 1.33;
+    color: $primaryDarkBackgroundColor;
+}
+
+.more-articles p {
+  margin-bottom: 6px;
+}
+
+.articles-item__text {
+  font-weight: 500;
+    font-size: 14px;
+    line-height: 1.69;
+    margin-top: 8px;
+}
+
