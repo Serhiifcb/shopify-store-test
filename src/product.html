@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopify store</title>
+    <link rel="stylesheet" href="./sass/index.scss" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <script type="module" src="./index.js"></script>
+    <script
+      type="module "
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+    ></script>
+    <!-- <script type="module" src="../src/slick.min.js"></script> -->
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+  </head>
+  <body>
+    <header class="container">
+      <div class="header__top-block header__section">
+        <ul class="header__top-list">
+          <li class="header__top-item">
+            <img
+              src="../src/images/svg/free-delivery.svg"
+              alt="Free delivery icon"
+              class="header__top-block-icon"
+            />
+            Free delivery
+          </li>
+          <li class="header__top-item">
+            <img
+              src="../src/images/svg/warranty.svg"
+              alt="Warranty icon"
+              class="header__top-block-icon"
+            />
+            Warranty
+          </li>
+          <li class="header__top-item">
+            <img
+              src="../src/images/svg/star.svg"
+              alt="Client reviews icon"
+              class="header__top-block-icon"
+            />
+            Client reviews
+          </li>
+          <li class="header__top-item">
+            <a href="tel:+31242022849" class="header__phone">
+              <img
+                src="../src/images/svg/phone.svg"
+                alt="Phone icon"
+                class="header__top-block-icon"
+              />
+              +31 24 20 22 849
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="header__bottom-block header__section product-header">
+        <nav class="header__navigation">
+          <a href="#" class="header__navigation-link">Het product</a>
+          <a href="#" class="header__navigation-link">Over Ons</a>
+          <a href="#" class="header__navigation-link">Blog</a>
+          <a href="#" class="header__navigation-link">Contact</a>
+        </nav>
+        <a href="./index.html" class="header__logo">
+          <img src="../src/images/logo.png" alt="Logo" />
+        </a>
+        <div class="header__menu">
+          <img
+            src="../src/images/svg/search.svg"
+            alt="Search icon"
+            class="header__menu-icon"
+          />
+          <img
+            src="../src/images/svg/user.svg"
+            alt="User icon"
+            class="header__menu-icon"
+          />
+          <img
+            src="../src/images/svg/shopping-cart.svg"
+            alt="Shopping cart icon"
+            class="header__menu-icon"
+          />
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="product">
+        <div class="product__container">
+          <div class="product__inner">
+            <div class="product__interact">
+              <div class="product__images">
+                <div class="product__big-img">
+                  <img
+                    src="../src/images/big-img.png"
+                    alt=""
+                    width="800"
+                    height="600"
+                  />
+                  <!-- {% for block in section.blocks %} {{ block.settings.big-img |
+                  img_url:'master' | img_tag: new.pic }} {% endfor %} -->
+                </div>
+                <div class="wrapper">
+                  <div class="slider">
+                    <div class="slider__item">
+                      <img src="../src/images/small-img.png" alt="" />
+                    </div>
+                    <div class="slider__item">
+                      <img src="../src/images/small-img.png" alt="" />
+                    </div>
+                    <div class="slider__item">
+                      <img src="../src/images/small-img.png" alt="" />
+                    </div>
+                    <div class="slider__item">
+                      <img src="../src/images/small-img.png" alt="" />
+                    </div>
+                    <div class="slider__item">
+                      <img src="../src/images/small-img.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product__info">
+                <div class="product__info-top">
+                  <div class="product__breadcrumbs">
+                    <a href="#">Homepage</a>
+                    <a href="#">Amazing Air</a>
+                  </div>
+                  <h1 class="product__name">
+                    Presale: AmazingAir 4-in-1 Air Purifier
+                  </h1>
+                  <h1 class="product__price">$47.95 USD</h1>
+                  <div class="product__stars">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <p>20 reviews</p>
+                  </div>
+                  <div class="products__color-switch">
+                    <div class="products__color-title">Color</div>
+                    <div class="products__switches">
+                      <div
+                        class="products__switches-r products__switches-active"
+                      ></div>
+                      <div class="products__switches-b"></div>
+                    </div>
+                  </div>
+                  <div class="quantity-text">Quantity</div>
+                  <div
+                    x-data="{ 
+                      qty: 1,
+                      addToCart(){
+                          let formData = new FormData($refs.product_form);
+                          
+                          fetch(window.Shopify.routes.root + 'cart/add.js', {
+                          method: 'POST',
+                          body: formData
+                          })
+                          .then(response => {
+                          return response.json();
+                          })
+                          .catch((error) => {
+                          console.error('Error:', error);
+                          });
+
+                          document.querySelector('.add-to-card').classList.add('added-to-card')
+                          document.querySelector('.add-to-card').innerHTML = 'Added to cart';
+
+                      } 
+                      }"
+                  >
+                    <form
+                      product,
+                      id="product_form_id"
+                      ,
+                      class="form products__quant-and-add"
+                      ,
+                      novalidate,
+                      x-ref="product_form"
+                    >
+                      <input type="hidden" name="id" value="1" />
+                      <input
+                        type="hidden"
+                        x-model="qty"
+                        name="quantity"
+                        value="1"
+                        class="quantity-info"
+                      />
+                      <div
+                        class="quantity"
+                        x-data="{ 
+                        qty: 1,
+                        minus(value){
+                            (this.qty == 1) ? this.qty = 1 : this.qty -= value;
+                        },
+                        plus(value){
+                            (this.qty == 10) ? this.qty = 10 : this.qty += value;
+                        }
+                        }"
+                      >
+                        <div class="decrement" @click="minus(1)"></div>
+                        <input
+                          type="text"
+                          x-model="qty"
+                          name="quantity"
+                          value="1"
+                          readonly
+                          min="1"
+                          max="10"
+                        />
+                        <div class="increment" @click="plus(1)"></div>
+                      </div>
+                      <button
+                        type="button"
+                        name="add"
+                        @click="addToCart()"
+                        class="add-to-card product-form__submit"
+                      >
+                        Add to card
+                      </button>
+                    </form>
+                  </div>
+                  <form class="products__quant-and-add">
+                    <div class="quantity quantity-hidden"></div>
+                    <button class="add-to-card buy-button">Buy it now</button>
+                  </form>
+                </div>
+                <div class="product__info-bottom">
+                  <div class="product__description-blocks">
+                    <div class="description">
+                      <div class="change-arrow">Description</div>
+                      <h3 class="product__description-subtitle">
+                        Donec eget turpis in ex pretium tincidunt. Nam ac
+                        finibus felis. Ut sed molestie augue. Nulla elementum
+                        ipsum id viverra ultricies. Donec efficitur, urna non
+                        facilisis congue, nulla lectus faucibus urna, vel auctor
+                        urna lacus in nulla.
+                      </h3>
+                      <ul class="product__description__check-list">
+                        <li>
+                          Removes 99.99% of viruses and bacteria from the air
+                        </li>
+                        <li>
+                          30% quieter than most air purifiers due to the
+                          WhisperJet fans
+                        </li>
+                        <li>Easy to install</li>
+                        <li>
+                          2 virus in a test room (proven by independent
+                          laboratory research )
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="shipping">
+                      <div class="change-arrow">Shipping</div>
+                      <h3 class="product__description-subtitle">
+                        Donec eget turpis in ex pretium tincidunt. Nam ac
+                        finibus felis. Ut sed molestie augue. Nulla elementum
+                        ipsum id viverra ultricies. Donec efficitur, urna non
+                        facilisis congue, nulla lectus faucibus urna, vel auctor
+                        urna lacus in nulla.
+                      </h3>
+                    </div>
+                    <div class="material">
+                      <div class="change-arrow">Material & Care</div>
+                      <h3 class="product__description-subtitle">
+                        Donec eget turpis in ex pretium tincidunt. Nam ac
+                        finibus felis. Ut sed molestie augue. Nulla elementum
+                        ipsum id viverra ultricies. Donec efficitur, urna non
+                        facilisis congue, nulla lectus faucibus urna, vel auctor
+                        urna lacus in nulla.
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="review__container">
+                <div class="review__inner">
+                  <div class="review__top">
+                    <div class="review__customer">
+                      <div class="review__customer-inner">
+                        <h4>Customer Reviews</h4>
+                        <div class="review__customer-rate">
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <p>Based on 2 reviews</p>
+                        </div>
+                      </div>
+                      <div class="review__write">
+                        <a href="#">Write a review</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="review__bottom">
+                    <div class="review__small-blocks">
+                      <div class="review__lorem">
+                        <div class="review__lorem-rate">
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                        <h3 class="review__lorem-title">Lorem ipsum</h3>
+                        <h6 class="review__lorem-date">
+                          Bianca on Feb 11, 2022
+                        </h6>
+                        <h5 class="review__lorem-subtitle">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore magna aliqua. Ut enim ad minim veniam, quis
+                          nostrud exercitation ullamco laboris nisi ut aliquip
+                        </h5>
+                      </div>
+                      <div class="review__lorem">
+                        <div class="review__lorem-rate">
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                        <h3 class="review__lorem-title">Lorem ipsum</h3>
+                        <h6 class="review__lorem-date">
+                          Bianca on Feb 11, 2022
+                        </h6>
+                        <h5 class="review__lorem-subtitle">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore magna aliqua. Ut enim ad minim veniam, quis
+                          nostrud exercitation ullamco laboris nisi ut aliquip
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="container">
+      <div class="footer-section">
+        <div>
+          <img src="../src/images/logo-light.png" alt="logo" />
+          <p class="footer-text">
+            Donec eget turpis in ex pretium tincidunt. Nam ac finibus felis. Ut
+            sed molestie augue.
+          </p>
+        </div>
+        <div>
+          <p class="footer-title">More</p>
+          <ul class="footer-list">
+            <li class="footer-list__item">Shop</li>
+            <li class="footer-list__item">About us</li>
+            <li class="footer-list__item">Blog</li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Customer Care</p>
+          <ul class="footer-list">
+            <li class="footer-list__item">Login</li>
+            <li class="footer-list__item">Register</li>
+            <li class="footer-list__item">FAQs</li>
+            <li class="footer-list__item">Shipping and Returns</li>
+            <li class="footer-list__item">Terms and Conditions</li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Contact</p>
+          <ul class="footer-list">
+            <li class="footer-contact__item">
+              Groesbeekseweg 22 <br />
+              6524 DB, Nijmegen <br />
+              The Netherlands
+            </li>
+            <li class="footer-contact__item">info@amazingair.eu</li>
+            <li class="footer-contact__item">
+              +31 24 20 22 849 <br />
+              +31 6 49 536 820
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Follow Us</p>
+          <ul class="follow-us__list">
+            <li class="follow-us__item">
+              <img src="../src/images/svg/instagram.svg" alt="instagram icon" />
+            </li>
+            <li class="footer-list__item">
+              <img src="../src/images/svg/facebook.svg" alt="facebook icon" />
+            </li>
+          </ul>
+        </div>
+        <div class="country-block">
+          <img src="../src/images/flag.png" alt="country flag" />
+          <p class="country-name">English/USD</p>
+        </div>
+        <div class="payment-block">
+          <ul class="payment-list">
+            <li class="payment-img">
+              <img src="../src/images/visa.png" alt="visa icon" />
+            </li>
+            <li class="payment-img">
+              <img src="../src/images/mastercard.png" alt="mastercard icon" />
+            </li>
+            <li class="payment-img">
+              <img src="../src/images/paypal.png" alt="paypal icon" />
+            </li>
+            <li class="payment-img">
+              <img src="../src/images/bancontact.png" alt="bancontact icon" />
+            </li>
+            <li class="payment-img">
+              <img src="../src/images/applepay.png" alt="applepay icon" />
+            </li>
+            <li class="payment-img">
+              <img src="../src/images/googlepay.png" alt="googlepay icon" />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <!-- ❗️❗️❗️ Add partials like so for every page -->
+    <!-- <include src="./partials/example.html"></include> -->
+  </body>
+</html>
