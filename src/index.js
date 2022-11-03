@@ -4,7 +4,28 @@ $('.slider').slick({
   speed: 500,
   easing: 'ease',
   infinite: false,
-  // centerMode: true,
+});
+
+const inputQuantity = document.querySelector('.quantity input');
+const decrement = document.querySelector('.decrement');
+const increment = document.querySelector('.increment');
+console.log(typeof inputQuantity.value);
+decrement.addEventListener('click', () => {
+  if (Number(inputQuantity.value) > 1) {
+    console.log(typeof Number(inputQuantity.value));
+    inputQuantity.value = Number(inputQuantity.value) - 1;
+  }
+});
+increment.addEventListener('click', () => {
+  if (Number(inputQuantity.value) < 10) {
+    inputQuantity.value = Number(inputQuantity.value) + 1;
+  }
+});
+
+const addCart = document.querySelector('.add-to-card');
+addCart.addEventListener('click', () => {
+  addCart.classList.add('added-to-card');
+  addCart.innerHTML = 'Added to cart';
 });
 
 const redBtn = document.querySelector('.products__switches-r');
